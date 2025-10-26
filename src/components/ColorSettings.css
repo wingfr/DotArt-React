@@ -1,0 +1,70 @@
+.colorContainer {
+  display: grid;
+  border: px solid #333;
+  border-radius: 0px 15px 15px 0px;
+  background-color: #ACACAC;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 170px;
+  justify-content: center;
+}
+.clearBtns {
+  display: grid;
+  grid-template-columns: repeat(2, 66px);
+  margin-top: 7px;
+  justify-content: center;
+}
+.eraser {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+    font-weight: 600;
+    font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.eraser:hover {
+  opacity: 0.8;
+}
+.eraser:active {
+  opacity: 0.6;
+}
+.clearAll {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.clearAll:hover {
+  opacity: 0.8;
+}
+.clearAll:active {
+  opacity: 0.6;
+}
+.colors {
+  display: grid;
+  grid-template-columns: repeat(7, 20px);
+  grid-auto-rows: 20px;   
+  justify-content: center;
+  border: 0px solid #333;
+  border-radius: 10px;
+  background-color: rgb(0, 136, 255);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.color {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  display: inline-block;
+  border: 1px solid #9b9b9b;
+  transition: 0.1s ease-in;
+  flex: 0 0 20px;
+}
+.color:hover {
+  scale: 1.1;
+}

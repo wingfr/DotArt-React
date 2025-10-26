@@ -1,0 +1,17 @@
+.pixel {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #3333330a;
+  box-sizing: border-box;
+}
+.pixel:hover {
+  background-color: #9b9b9b;
+}
+
+.grid {
+  margin-top: 10px;
+  border: 1px solid #333;
+}
+* {
+  user-select: none;
+}

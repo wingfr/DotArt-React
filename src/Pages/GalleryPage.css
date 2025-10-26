@@ -1,0 +1,24 @@
+.come {
+    margin-top: 300px;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    width: 0;
+    animation: typingLoop 4s steps(14) infinite,
+             blink 0.75s step-end infinite;
+}
+
+@keyframes typingLoop {
+  0%   { width: 0ch; }   /* 打ち始め */
+  40%  { width: 13ch; }  /* 全部出る */
+  60%  { width: 13ch; }  /* 少し止める */
+  100% { width: 0ch; }   /* 逆再生して消える */
+}
+
+/* カーソル点滅 */
+@keyframes blink {
+  50% { border-color: transparent; }
+}

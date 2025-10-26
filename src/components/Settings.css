@@ -1,0 +1,60 @@
+.createSetting {
+  text-align: center;
+  display: grid;
+  height: 150px;
+  background-color: #ACACAC;
+  border-radius: 15px 0px 0px 15px;
+  justify-items: center;
+  width: 180px;
+}
+.rows {
+  margin-top: 20px;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.cols {
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.createBtn {
+  margin-top: 10px;
+  width: 70px;
+  height: 30px;
+  border: 0px;
+  border-radius: 50px;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.createBtn:hover {
+  opacity: 0.8;
+}
+.createBtn:active {
+  opacity: 0.6;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 66px);
+  grid-auto-rows: 30px; 
+}
+
+.saveBtn {
+  margin-top: 5px;
+  width: 70px;
+  height: 30px;
+  border: 0px;
+  border-radius: 50px;
+  display: block;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.saveBtn:hover {
+  opacity: 0.8;
+}
+.saveBtn:active {
+  opacity: 0.6;
+}
