@@ -15,3 +15,11 @@ Reactで作成したドット絵アプリです。
 - galleryに保存
 - ドット絵を読み込み
 - 他の人の作品を検索、保存、編集
+
+## サイト動かす手順
+- zipファイルをダウンロード
+- vscodeで開く
+- ターミナルで cd DotArt-React-main を実行
+- npm install を実行
+- npm run dev を実行
+- urlをクリック
