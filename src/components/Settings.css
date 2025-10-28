@@ -23,7 +23,6 @@
   width: 70px;
   height: 30px;
   border: 0px;
-  border-radius: 50px;
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -41,20 +40,39 @@
   grid-auto-rows: 30px; 
 }
 
-.saveBtn {
+.saveBtns {
+  display: grid;
+  grid-template-columns: repeat(2, 80px);
+  gap: 2px;
+}
+
+
+.pngBtn {
   margin-top: 5px;
-  width: 70px;
-  height: 30px;
   border: 0px;
-  border-radius: 50px;
   display: block;
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
-.saveBtn:hover {
+.pngBtn:hover {
   opacity: 0.8;
 }
-.saveBtn:active {
+.pngBtn:active {
+  opacity: 0.6;
+}
+
+.gallery {
+  margin-top: 5px;
+  border: 0px;
+  display: block;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.gallery:hover {
+  opacity: 0.8;
+}
+.gallery:active {
   opacity: 0.6;
 }

@@ -22,3 +22,38 @@
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
+.gallery-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  margin-top: 20px;
+}
+
+.gallery-item {
+  cursor: pointer;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.mini-grid {
+  display: grid;
+}
+
+.mini-pixel {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #eee;
+}

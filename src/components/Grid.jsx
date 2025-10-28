@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
 import './Grid.css';
 
-export function Grid({ rows, cols, currentColor, clearSignal }) {
+export function Grid({ rows, cols, currentColor, clearSignal, initialPixels }) {
     const [isDrawing, setIsDrawing] = useState(false);
     const [pixels, setPixels] = useState([]);
 
     useEffect(() => {
-        setPixels(Array(rows * cols).fill(''));
-    }, [rows, cols]);
+        if (initialPixels) {
+            // ✅ null を '' に変換してセット
+            setPixels(initialPixels.map(c => c || ''));
+        } else {
+            setPixels(Array(rows * cols).fill(''));
+        }
+    }, [rows, cols, initialPixels]);
 
-    // ✅ 全消しを受け取る
+    // ✅ 全消しは clearSignal が変わった時だけ発動！
     useEffect(() => {
+        if (!clearSignal) return; // ✅ 初回読み込みで発動しないように
         setPixels(Array(rows * cols).fill(''));
-    }, [clearSignal, cols, rows]);
+    }, [clearSignal, rows, cols]);
 
     function handlePaint(index) {
         const newPixels = [...pixels];
@@ -36,7 +42,7 @@ export function Grid({ rows, cols, currentColor, clearSignal }) {
                 <div
                     key={i}
                     className="pixel"
-                    style={{ backgroundColor: color }}
+                    style={{ backgroundColor: color || '' }}
                     onMouseDown={() => handlePaint(i)}
                     onMouseOver={() => isDrawing && handlePaint(i)}
                 />

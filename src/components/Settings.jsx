@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Settings.css';
 
-export function Settings({ onCreate, onSave }) {
+export function Settings({ onCreate, onSave, onSaveToGallery }) {
     const [rows, setRows] = useState('');
     const [cols, setCols] = useState('');
 
@@ -27,12 +27,19 @@ export function Settings({ onCreate, onSave }) {
                 value={cols}
                 onChange={(e) => setCols(e.target.value)}
             />
+
             <button className="createBtn" onClick={handleCreate}>
                 生成
             </button>
-            <button className="saveBtn" onClick={onSave}>
-                PNG透過
-            </button>
+
+            <div className='saveBtns'>
+                <button className="pngBtn" onClick={onSave}>
+                    PNG透過
+                </button>
+                <button className="gallery" onClick={onSaveToGallery}>
+                    ギャラリー
+                </button>
+            </div>
         </div>
 
 

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import html2canvas from 'html2canvas';
 import { Settings } from '../components/Settings';
 import { Grid } from '../components/Grid';
@@ -6,10 +6,11 @@ import { ColorSettings } from '../components/ColorSettings';
 import { Header } from '../components/Header';
 import "./DrawPage.css"
 
-export function DrawPage() {
+export function DrawPage({ loadData, setLoadData }) {
     const [gridSize, setGridSize] = useState(null);
     const [currentColor, setCurrentColor] = useState('black');
     const [clearSignal, setClearSignal] = useState(0);
+    const [loadedPixels, setLoadedPixels] = useState(null); // ✅ 追加
     const displayRef = useRef(null);
 
     const handleSave = () => {
@@ -20,20 +21,17 @@ export function DrawPage() {
 
         if (!grid) return;
 
-        // ✅ 現在の border を保存
         const prevGridBorder = grid.style.border;
         const prevPixelBorders = [];
 
-        // ✅ 全ピクセルの border を保存して消す
         pixels.forEach((pixel, i) => {
             prevPixelBorders[i] = pixel.style.border;
             pixel.style.border = 'none';
         });
 
-        // ✅ grid の border も消す
         grid.style.border = 'none';
 
-        html2canvas(displayRef.current, { backgroundColor: null, scale: 16 / 240 })
+        html2canvas(displayRef.current, { backgroundColor: null })
             .then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'dot-art.png';
@@ -41,7 +39,6 @@ export function DrawPage() {
                 link.click();
             })
             .finally(() => {
-                // ✅ 元に戻す
                 grid.style.border = prevGridBorder;
                 pixels.forEach((pixel, i) => {
                     pixel.style.border = prevPixelBorders[i];
@@ -49,16 +46,53 @@ export function DrawPage() {
             });
     };
 
-    const handleClearAll = () => {
-        setClearSignal(prev => prev + 1); // ✅ 数字を更新して通知
+    const handleClearAll = () => setClearSignal(prev => prev + 1);
+
+    const handleSaveToGallery = () => {
+        const grid = displayRef.current.querySelector('.grid');
+        const pixels = displayRef.current.querySelectorAll('.pixel');
+
+        if (!grid || pixels.length === 0) return;
+
+        const pixelColors = Array.from(pixels).map(pixel =>
+            pixel.style.backgroundColor || null
+        );
+
+        const data = {
+            rows: gridSize.rows,
+            cols: gridSize.cols,
+            pixels: pixelColors,
+            savedAt: Date.now()
+        };
+
+        const gallery = JSON.parse(localStorage.getItem('gallery') || '[]');
+        gallery.push(data);
+        localStorage.setItem('gallery', JSON.stringify(gallery));
+
+        alert("✅ ギャラリーに保存しました！");
     };
 
+    // ✅ ギャラリーデータの読み込み処理
+    useEffect(() => {
+        if (!loadData) return;
+
+        setGridSize({ rows: loadData.rows, cols: loadData.cols });
+        setLoadedPixels(loadData.pixels); // ✅ pixels 値を渡す
+        setLoadData(null);
+    }, [loadData]);
+
+    console.log("loadData:", loadData);
+    console.log("loadedPixels:", loadedPixels);
     return (
         <>
             <Header />
             <div className='drawPage'>
                 <div className="setting">
-                    <Settings onCreate={setGridSize} onSave={handleSave} />
+                    <Settings
+                        onCreate={setGridSize}
+                        onSave={handleSave}
+                        onSaveToGallery={handleSaveToGallery}
+                    />
                     <ColorSettings
                         onColorSelect={setCurrentColor}
                         onClear={handleClearAll}
@@ -71,7 +105,8 @@ export function DrawPage() {
                             rows={gridSize.rows}
                             cols={gridSize.cols}
                             currentColor={currentColor}
-                            clearSignal={clearSignal} // ✅ Grid に通知
+                            clearSignal={clearSignal}
+                            initialPixels={loadedPixels} // ✅ 正しく設定
                         />
                     )}
                 </div>
