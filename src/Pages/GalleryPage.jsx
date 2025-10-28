@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
+import './GalleryPage.css';
 
 export function GalleryPage({ setLoadData }) {
     const [gallery, setGallery] = useState([]);
@@ -20,18 +21,18 @@ export function GalleryPage({ setLoadData }) {
         <>
             <Header />
             <div className="galleryPage">
-                <h2>Gallery</h2>
 
-                <Link to="/draw">✏️ Create New</Link>
+
 
                 <div className="galleryList">
+                    <Link className='toDrawingPage' to="/draw">ドット絵を描く</Link>
                     {gallery.map((item, index) => (
                         <div key={index} className="galleryItem">
                             <p>{item.rows} × {item.cols}</p>
-                            <p>{new Date(item.savedAt).toLocaleString()}</p>
+                            <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
 
                             {/* ✅ 読み込みボタン */}
-                            <button onClick={() => handleLoad(item)}>
+                            <button className="loadBtn" onClick={() => handleLoad(item)}>
                                 読み込む
                             </button>
                         </div>

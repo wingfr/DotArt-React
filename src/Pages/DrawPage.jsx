@@ -31,7 +31,7 @@ export function DrawPage({ loadData, setLoadData }) {
 
         grid.style.border = 'none';
 
-        html2canvas(displayRef.current, { backgroundColor: null })
+        html2canvas(displayRef.current, { backgroundColor: null, scale: 16 / 240 })
             .then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'dot-art.png';
@@ -81,8 +81,6 @@ export function DrawPage({ loadData, setLoadData }) {
         setLoadData(null);
     }, [loadData, setLoadData]);
 
-    console.log("loadData:", loadData);
-    console.log("loadedPixels:", loadedPixels);
     return (
         <>
             <Header />

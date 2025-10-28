@@ -10,12 +10,12 @@
 .rows {
   margin-top: 20px;
   font-family: "DotGothic16", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
 }
 .cols {
   font-family: "DotGothic16", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
 }
 .createBtn {
@@ -48,7 +48,6 @@
 
 
 .pngBtn {
-  margin-top: 5px;
   border: 0px;
   display: block;
   font-family: "DotGothic16", sans-serif;
@@ -63,7 +62,6 @@
 }
 
 .gallery {
-  margin-top: 5px;
   border: 0px;
   display: block;
   font-family: "DotGothic16", sans-serif;
