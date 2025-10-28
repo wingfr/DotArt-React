@@ -79,7 +79,7 @@ export function DrawPage({ loadData, setLoadData }) {
         setGridSize({ rows: loadData.rows, cols: loadData.cols });
         setLoadedPixels(loadData.pixels); // ✅ pixels 値を渡す
         setLoadData(null);
-    }, [loadData]);
+    }, [loadData, setLoadData]);
 
     console.log("loadData:", loadData);
     console.log("loadedPixels:", loadedPixels);
