@@ -31,10 +31,10 @@
   border-radius: 15px;
   font-weight: 600;
   text-decoration: underline;
-  padding-bottom: 5px;
   color: black;
   transition: 0.2s ease;
-  min-height: 60px;
+  min-width: 198px;
+  min-height: 198px;
 }
 .toDrawingPage:hover {
   background-color: rgb(8, 79, 45);
@@ -61,7 +61,16 @@
     min-height: 198px;
     display: grid;
     justify-items: center;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeInScale 0.5s forwards;
 }
+@keyframes fadeInScale {
+    to {
+      opacity: 1;          /* 最終的に表示 */
+      transform: scale(1); /* 元のサイズに戻す */
+    }
+  }
 
 @media (min-width: 410px) {
   .galleryList {
@@ -89,12 +98,27 @@
   background-color: transparent;
   border: 0px;
   width: 200px;
-  border-radius: 0px 0px 15px 15px;
   font-weight: 600;
   font-size: 15px;
   transition: 0.2s ease;
   border-top: 1px solid #333;
 }
 .loadBtn:hover {
-  background-color: beige;
+  background-color: rgb(0, 67, 99);
+  color: rgb(255, 255, 255);
+}
+.deleteBtn {
+  background-color: transparent;
+  border: 0px;
+  width: 200px;
+  border-radius: 0px 0px 15px 15px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s ease;
+  border-top: 1px solid #333;
+  color: red;
+}
+.deleteBtn:hover {
+  background-color: rgb(95, 0, 0);
+  color: white;
 }

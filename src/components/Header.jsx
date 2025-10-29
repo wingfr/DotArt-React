@@ -11,7 +11,17 @@ export function Header() {
                 <Link to="/">
                     <div className='title'><span className='text-Simple'>Simple</span><span className='text-DotArt'>DotArt</span></div>
                 </Link>
-                <div className='middle-section'></div>
+                <div className='middle-section'>
+                    <Link to="/">
+                        <div className='middle toHome'>Home</div>
+                    </Link>
+                    <Link to="/draw">
+                        <div className='middle toCanvas'>Canvas</div>
+                    </Link>
+                    <Link to="/gallery">
+                        <div className='middle toGallery'>Gallery</div>
+                    </Link>
+                </div>
 
                 <div className="menu">
                     <div

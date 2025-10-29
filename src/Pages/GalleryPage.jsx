@@ -17,6 +17,13 @@ export function GalleryPage({ setLoadData }) {
         navigate("/draw");
     }
 
+    //削除機能
+    const handleDelete = (index) => {
+        const newGallery = gallery.filter((_, i) => i !== index);
+        setGallery(newGallery);
+        localStorage.setItem("gallery", JSON.stringify(newGallery));
+    };
+
     return (
         <>
             <Header />
@@ -34,6 +41,10 @@ export function GalleryPage({ setLoadData }) {
                             {/* ✅ 読み込みボタン */}
                             <button className="loadBtn" onClick={() => handleLoad(item)}>
                                 読み込む
+                            </button>
+                            {/* ✅ 削除ボタン */}
+                            <button className="deleteBtn" onClick={() => handleDelete(index)}>
+                                削除
                             </button>
                         </div>
                     ))}
