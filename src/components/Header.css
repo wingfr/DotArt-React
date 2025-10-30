@@ -34,12 +34,7 @@ a {
   font-size: 35px;
   transition: 0.1s ease;
 }
-.title:hover {
-  color: rgb(121, 84, 84);
-}
-.title:active {
-  color: #151922;
-}
+
 
 
 
@@ -48,14 +43,14 @@ a {
   display: flex;
   align-items: center;
   font-size: 20px;
-  margin-right: 75px;
+  margin-right: 73px;
 }
 .middle {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 17px;
+  padding-left: 17px;
   color: #222222;
   transition: 0.2s ease-in;
 }
