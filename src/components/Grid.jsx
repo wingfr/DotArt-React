@@ -14,9 +14,9 @@ export function Grid({ rows, cols, currentColor, clearSignal, initialPixels }) {
         }
     }, [rows, cols, initialPixels]);
 
-    // ✅ 全消しは clearSignal が変わった時だけ発動！
+    //  全消しは clearSignal が変わった時だけ発動！
     useEffect(() => {
-        if (!clearSignal) return; // ✅ 初回読み込みで発動しないように
+        if (!clearSignal) return; //  初回読み込みで発動しないように
         setPixels(Array(rows * cols).fill(''));
     }, [clearSignal, rows, cols]);
 

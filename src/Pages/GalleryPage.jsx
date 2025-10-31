@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import './GalleryPage.css';
 
+
 export function GalleryPage({ setLoadData }) {
     const [gallery, setGallery] = useState([]);
     const navigate = useNavigate();
@@ -35,17 +36,19 @@ export function GalleryPage({ setLoadData }) {
                     <Link className='toDrawingPage' to="/draw">ドット絵を描く</Link>
                     {gallery.map((item, index) => (
                         <div key={index} className="galleryItem">
-                            <p>{item.rows} × {item.cols}</p>
+                            {/* ✅ 削除ボタン */}
+                            <button className="deleteBtn" onClick={() => handleDelete(index)}>
+                                ×
+                            </button>
+                            <p className="gridSize">{item.rows} × {item.cols}</p>
+                            <p className="projectName">Name: {item.name || "unknown"}</p>
                             <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
 
                             {/* ✅ 読み込みボタン */}
                             <button className="loadBtn" onClick={() => handleLoad(item)}>
                                 読み込む
                             </button>
-                            {/* ✅ 削除ボタン */}
-                            <button className="deleteBtn" onClick={() => handleDelete(index)}>
-                                削除
-                            </button>
+
                         </div>
                     ))}
                 </div>

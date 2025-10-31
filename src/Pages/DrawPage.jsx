@@ -4,6 +4,7 @@ import { Settings } from '../components/Settings';
 import { Grid } from '../components/Grid';
 import { ColorSettings } from '../components/ColorSettings';
 import { Header } from '../components/Header';
+import { SetName } from '../components/Name';
 import "./DrawPage.css"
 
 export function DrawPage({ loadData, setLoadData }) {
@@ -12,12 +13,14 @@ export function DrawPage({ loadData, setLoadData }) {
     const [clearSignal, setClearSignal] = useState(0);
     const [loadedPixels, setLoadedPixels] = useState(null); // ✅ 追加
     const displayRef = useRef(null);
+    const [name, setName] = useState('');
 
     const handleSave = () => {
         if (!displayRef.current) return;
 
         const grid = displayRef.current.querySelector('.grid');
         const pixels = displayRef.current.querySelectorAll('.pixel');
+
 
         if (!grid) return;
 
@@ -34,7 +37,7 @@ export function DrawPage({ loadData, setLoadData }) {
         html2canvas(displayRef.current, { backgroundColor: null, scale: 16 / 240 })
             .then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'dot-art.png';
+                link.download = `${name}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             })
@@ -59,6 +62,7 @@ export function DrawPage({ loadData, setLoadData }) {
         );
 
         const data = {
+            name: name || "unknown",
             rows: gridSize.rows,
             cols: gridSize.cols,
             pixels: pixelColors,
@@ -69,7 +73,7 @@ export function DrawPage({ loadData, setLoadData }) {
         gallery.push(data);
         localStorage.setItem('gallery', JSON.stringify(gallery));
 
-        alert("✅ ギャラリーに保存しました！");
+        alert("ギャラリーに保存しました！");
     };
 
     // ✅ ギャラリーデータの読み込み処理
@@ -85,7 +89,12 @@ export function DrawPage({ loadData, setLoadData }) {
         <>
             <Header />
             <div className='drawPage'>
+
                 <div className="setting">
+                    <SetName
+                        name={name}
+                        setName={setName}
+                    />
                     <Settings
                         onCreate={setGridSize}
                         onSave={handleSave}

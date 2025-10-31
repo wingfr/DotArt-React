@@ -1,0 +1,13 @@
+.setNameContainer {
+    display: flex;
+    background-color: #ACACAC;
+    border-radius: 15px 0px 0px 15px;
+    align-items: center;
+}
+.setName {
+    width: 154px;
+    height: 30px;
+    margin: 5px;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 600;
+}
