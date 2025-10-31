@@ -36,12 +36,15 @@ export function GalleryPage({ setLoadData }) {
                     <Link className='toDrawingPage' to="/draw">ドット絵を描く</Link>
                     {gallery.map((item, index) => (
                         <div key={index} className="galleryItem">
-                            {/* ✅ 削除ボタン */}
-                            <button className="deleteBtn" onClick={() => handleDelete(index)}>
-                                ×
-                            </button>
+                            <div className="nameDltBtn">
+                                <p className="projectName">Name: {item.name || "unknown"}</p>
+                                {/* ✅ 削除ボタン */}
+                                <button className="deleteBtn" onClick={() => handleDelete(index)}>
+                                    ×
+                                </button>
+                            </div>
                             <p className="gridSize">{item.rows} × {item.cols}</p>
-                            <p className="projectName">Name: {item.name || "unknown"}</p>
+
                             <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
 
                             {/* ✅ 読み込みボタン */}

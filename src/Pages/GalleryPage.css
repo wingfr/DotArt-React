@@ -95,21 +95,16 @@ p {
   color: rgb(255, 255, 255);
 }
 .deleteBtn {
-  position: fixed;
-  top: 0px;
-  right: 0px;
   background-color: rgb(180, 3, 3);
   border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 15px;
+  border-radius: 0px 15px 0px 0px;
   font-weight: 1000;
   font-size: 15px;
   transition: 0.2s ease;
   border-top: 1px solid #333;
   color: rgb(255, 255, 255);
+  width: 30px;
+  height: 100%;
 }
 .deleteBtn:hover {
   background-color: rgb(95, 0, 0);
@@ -120,6 +115,18 @@ p {
   margin: 0px;
   margin-top: 10px;
 }
+.nameDltBtn {
+  display: flex;
+  width: 95%;
+  height: 31px;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(17, 18, 80);
+  background-color: #afdbd4;
+  padding-left: 10px;
+  border-radius: 15px 15px 0px 0px;
+}
+
 .date {
   margin: 0px;
   margin-top: 10px;

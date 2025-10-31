@@ -11,7 +11,7 @@ export function DrawPage({ loadData, setLoadData }) {
     const [gridSize, setGridSize] = useState(null);
     const [currentColor, setCurrentColor] = useState('black');
     const [clearSignal, setClearSignal] = useState(0);
-    const [loadedPixels, setLoadedPixels] = useState(null); // ✅ 追加
+    const [loadedPixels, setLoadedPixels] = useState(null);
     const displayRef = useRef(null);
     const [name, setName] = useState('');
 

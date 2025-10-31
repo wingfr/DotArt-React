@@ -21,6 +21,9 @@ export function Header() {
                     <Link to="/gallery">
                         <div className='middle toGallery'>Gallery</div>
                     </Link>
+                    <Link to="/search">
+                        <div className='middle toGallery'>Search</div>
+                    </Link>
                 </div>
 
                 <div className="menu">
