@@ -5,8 +5,8 @@ Reactで作成したドット絵アプリです。
 - Gridで描画
 - 色選択・消しゴム・全消し
 - PNG透過保存
-- ギャラリーの保存　←<span style="color:green;">new</span>
-- ギャラリーから読み込み ←<span style="color:green;">new</span>
+- ギャラリーの保存　← <span style="color:green;">new</span>
+- ギャラリーから読み込み ← <span style="color:green;">new</span>
 
 ## 技術スタック
 - React
