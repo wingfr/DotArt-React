@@ -1,4 +1,5 @@
 import { Header } from "../components/Header";
+import "./SearchPage.css";
 
 export function SerachPage() {
     return (
