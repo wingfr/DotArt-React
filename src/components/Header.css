@@ -46,6 +46,7 @@ a {
   margin-right: 73px;
 }
 .middle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,10 +54,26 @@ a {
   padding-left: 17px;
   color: #222222;
   transition: 0.2s ease-in;
+  text-decoration: none;
 }
 .middle:hover {
   color: rgb(255, 255, 255);
 }
+.middle::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* 文字との間隔を調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px; /* 線の太さ */
+  background: rgb(255, 255, 255);
+  transition: width 0.3s ease;
+}
+.middle:hover::after {
+  width: 70%;
+}
+
 .toHome {
   border-right: 1px solid #333;
 }
