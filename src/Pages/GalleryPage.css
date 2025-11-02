@@ -43,7 +43,7 @@ p {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
+    max-width: 198px;
     opacity: 0;
     transform: scale(0.5);
     animation: fadeInScale 0.5s forwards;
@@ -95,16 +95,21 @@ p {
   color: rgb(255, 255, 255);
 }
 .deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(180, 3, 3);
   border: 1px solid #333;
-  border-radius: 0px 15px 0px 0px;
-  font-weight: 1000;
+  border-radius: 15px;
+  font-weight: 600;
   font-size: 15px;
   transition: 0.2s ease;
   border-top: 1px solid #333;
   color: rgb(255, 255, 255);
-  width: 30px;
-  height: 100%;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
 }
 .deleteBtn:hover {
   background-color: rgb(95, 0, 0);

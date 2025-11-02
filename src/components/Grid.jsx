@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Grid.css';
 
-export function Grid({ rows, cols, currentColor, clearSignal, initialPixels }) {
+export function Grid({ rows, cols, currentColor, clearSignal, initialPixels, onPixelsChange }) {
     const [isDrawing, setIsDrawing] = useState(false);
     const [pixels, setPixels] = useState([]);
 
@@ -14,6 +14,10 @@ export function Grid({ rows, cols, currentColor, clearSignal, initialPixels }) {
         }
     }, [rows, cols, initialPixels]);
 
+    useEffect(() => {
+        if (onPixelsChange) onPixelsChange(pixels);
+    }, [onPixelsChange, pixels]);
+
     //  全消しは clearSignal が変わった時だけ発動！
     useEffect(() => {
         if (!clearSignal) return; //  初回読み込みで発動しないように
@@ -24,6 +28,7 @@ export function Grid({ rows, cols, currentColor, clearSignal, initialPixels }) {
         const newPixels = [...pixels];
         newPixels[index] = currentColor === 'erase' ? '' : currentColor;
         setPixels(newPixels);
+        if (onPixelsChange) onPixelsChange(newPixels);
     }
 
     return (

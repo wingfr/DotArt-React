@@ -5,6 +5,7 @@ import { Grid } from '../components/Grid';
 import { ColorSettings } from '../components/ColorSettings';
 import { Header } from '../components/Header';
 import { SetName } from '../components/Name';
+import { Post } from '../components/Post';
 import "./DrawPage.css"
 
 export function DrawPage({ loadData, setLoadData }) {
@@ -14,6 +15,11 @@ export function DrawPage({ loadData, setLoadData }) {
     const [loadedPixels, setLoadedPixels] = useState(null);
     const displayRef = useRef(null);
     const [name, setName] = useState('');
+    const [pixels, setPixels] = useState([]);
+    const [author, setAuthor] = useState("");
+    const getPixels = () => pixels;
+
+
 
     const handleSave = () => {
         if (!displayRef.current) return;
@@ -62,7 +68,8 @@ export function DrawPage({ loadData, setLoadData }) {
         );
 
         const data = {
-            name: name || "unknown",
+            name: name || "untitled",
+            author: author || "unknown",
             rows: gridSize.rows,
             cols: gridSize.cols,
             pixels: pixelColors,
@@ -82,8 +89,12 @@ export function DrawPage({ loadData, setLoadData }) {
 
         setGridSize({ rows: loadData.rows, cols: loadData.cols });
         setLoadedPixels(loadData.pixels); // ✅ pixels 値を渡す
+        setAuthor(loadData.author || "");
+        setName(loadData.name || "");
         setLoadData(null);
     }, [loadData, setLoadData]);
+
+
 
     return (
         <>
@@ -91,9 +102,12 @@ export function DrawPage({ loadData, setLoadData }) {
             <div className='drawPage'>
 
                 <div className="setting">
+                    <Post gridSize={gridSize} name={name} author={author} getPixels={getPixels} />
                     <SetName
                         name={name}
                         setName={setName}
+                        author={author}
+                        setAuthor={setAuthor}
                     />
                     <Settings
                         onCreate={setGridSize}
@@ -113,10 +127,12 @@ export function DrawPage({ loadData, setLoadData }) {
                             cols={gridSize.cols}
                             currentColor={currentColor}
                             clearSignal={clearSignal}
-                            initialPixels={loadedPixels} // ✅ 正しく設定
+                            initialPixels={loadedPixels}
+                            onPixelsChange={setPixels}
                         />
                     )}
                 </div>
+
             </div>
         </>
     );

@@ -1,25 +1,11 @@
-.come {
-  margin-top: 400px;
-  font-size: 2rem;
-  font-weight: bold;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid; /* カーソル */
-  
-  /* 1回のアニメの長さは4秒（お好みで変更OK） */
-  animation: typingLoop 4s steps(13) infinite,
-             blink 0.75s step-end infinite;
-}
-
-/* Coming soon... は全部で16文字として指定 */
-@keyframes typingLoop {
-  0%   { width: 0ch; }   /* 打ち始め */
-  40%  { width: 13ch; }  /* 全部出る */
-  60%  { width: 13ch; }  /* 少し止める */
-  100% { width: 0ch; }   /* 逆再生して消える */
-}
-
-/* カーソル点滅 */
-@keyframes blink {
-  50% { border-color: transparent; }
+.inputSearch {
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 1000;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 60px;
 }
