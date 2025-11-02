@@ -58,7 +58,7 @@ export function DrawPage({ loadData, setLoadData }) {
 
     const handleClearAll = () => setClearSignal(prev => prev + 1);
 
-    const handleSaveToGallery = () => {
+    const handleSaveToGallery = async () => {
         const grid = displayRef.current.querySelector('.grid');
         const pixels = displayRef.current.querySelectorAll('.pixel');
 
@@ -68,12 +68,15 @@ export function DrawPage({ loadData, setLoadData }) {
             pixel.style.backgroundColor || null
         );
 
+        const imageData = await getImage();
+
         const data = {
             name: name || "untitled",
             author: author || "unknown",
             rows: gridSize.rows,
             cols: gridSize.cols,
             pixels: pixelColors,
+            image: imageData,
             savedAt: Date.now()
         };
 
@@ -92,7 +95,7 @@ export function DrawPage({ loadData, setLoadData }) {
         setLoadedPixels(loadData.pixels);
         setAuthor(loadData.author || "");
         setName(loadData.name || "");
-        setLoadData(null);
+        setLoadData(null)
     }, [loadData, setLoadData]);
 
 

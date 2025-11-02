@@ -10,16 +10,18 @@ p {
   border: 1px solid #333;
   border-radius: 15px;
   font-weight: 600;
+  font-size: 20px;
   text-decoration: underline;
   color: black;
   transition: 0.2s ease;
   min-width: 198px;
   min-height: 198px;
+  font-family: "DotGothic16", sans-serif;
 }
 .toDrawingPage:hover {
   background-color: rgb(8, 79, 45);
   color: rgb(255, 255, 255);
-  font-size: 110%;
+  font-size: 140%;
 }
 .toDrawingPage:active {
   color: rgb(0, 0, 0);
@@ -31,64 +33,79 @@ p {
 
 .galleryList {
   display: grid;
-  gap: 5px;
+  gap: 15px;
   
 }
 .galleryItem {
-    background-color: transparent;
-    border: 1px dashed #333;
-    border-radius: 15px;
-    min-height: 198px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 198px;
-    opacity: 0;
-    transform: scale(0.5);
-    animation: fadeInScale 0.5s forwards;
+  background-color: transparent;
+  border: 2px solid #333;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 230px;
+  min-height: 230px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInScale 0.5s forwards;
+  justify-content: space-between;
+  box-shadow: 0px 0px 5px #333;
 }
+.galleryItemsContent {
+  background-color: transparent;
+  border-radius: 15px;
+  min-height: 198px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 198px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: fadeInScale 0.5s forwards;
+    padding: 10px;
+}
+
 @keyframes fadeInScale {
     to {
       opacity: 1;          /* 最終的に表示 */
       transform: scale(1); /* 元のサイズに戻す */
     }
   }
-
-@media (min-width: 410px) {
+@media (min-width: 505px) {
   .galleryList {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 615px) {
+@media (min-width: 740px) {
   .galleryList {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 820px) {
+@media (min-width: 995px) {
   .galleryList {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
-@media (min-width: 1025px) {
+@media (min-width: 1235px) {
   .galleryList {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1490px) {
+  .galleryList {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 .loadBtn {
   background-color: transparent;
   border: 0px;
-  border-radius: 0px 0px 15px 15px;
-  width: 200px;
-  height: 50px;
+  border-radius: 0px 0px 11px 11px;
   font-weight: 600;
   font-size: 15px;
   transition: 0.2s ease;
   border-top: 1px solid #333;
   font-family: "DotGothic16", sans-serif;
-
 }
 .loadBtn:hover {
   background-color: rgb(0, 67, 99);
@@ -110,37 +127,39 @@ p {
   min-height: 25px;
   max-width: 25px;
   max-height: 25px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+    z-index: 10;
 }
 .deleteBtn:hover {
   background-color: rgb(95, 0, 0);
   color: white;
 }
-
+.projectAuthor {
+  margin: 0px;
+  font-size: 13px;
+  color: #4b4b4b;
+  border-bottom: 2px dashed #333;
+}
 .projectName {
   margin: 0px;
-  margin-top: 10px;
-}
-.nameDltBtn {
-  display: flex;
-  width: 95%;
-  height: 31px;
-  justify-content: space-between;
-  align-items: center;
-  color: rgb(17, 18, 80);
-  background-color: #afdbd4;
-  padding-left: 10px;
-  border-radius: 15px 15px 0px 0px;
 }
 
 .date {
   margin: 0px;
-  margin-top: 10px;
   font-size: 13px;
   color: #a1a1a1;
-  position: absolute;
-  bottom: 48px;
 }
 .gridSize {
-  margin: 0px;
-  margin-top: 20px;
+  margin: 0px auto 0px auto;
+  font-size: 13px;
+  color: #6b6b6b;
+}
+.galleryItemsImage {
+  width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 0px auto;
 }

@@ -36,22 +36,28 @@ export function GalleryPage({ setLoadData }) {
                     <Link className='toDrawingPage' to="/draw">ドット絵を描く</Link>
                     {gallery.map((item, index) => (
                         <div key={index} className="galleryItem">
-                            <div className="nameDltBtn">
-                                <p className="projectName">Name: {item.name || "unknown"}</p>
-                                {/* ✅ 削除ボタン */}
-                                <button className="deleteBtn" onClick={() => handleDelete(index)}>
-                                    ×
-                                </button>
+                            {/* ✅ 削除ボタン */}
+                            <button className="deleteBtn" onClick={() => handleDelete(index)}>
+                                ×
+                            </button>
+                            <div className="galleryItemsContent">
+                                <p className="projectAuthor">作者: {item.author || "unknown"}</p>
+                                <p className="projectName"> {item.name || "unknown"}</p>
+
+                                {item.image && (
+                                    <img
+                                        src={item.image}
+                                        alt="投稿された絵"
+                                        className="galleryItemsImage"
+                                    />
+                                )}
+                                <p className="gridSize">{item.rows} × {item.cols}</p>
+                                <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
                             </div>
-                            <p className="gridSize">{item.rows} × {item.cols}</p>
-
-                            <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
-
-                            {/* ✅ 読み込みボタン */}
+                            {/* 読み込みボタン */}
                             <button className="loadBtn" onClick={() => handleLoad(item)}>
                                 読み込む
                             </button>
-
                         </div>
                     ))}
                 </div>
