@@ -9,7 +9,7 @@ export function Header() {
         <>
             <div className='header'>
                 <Link to="/">
-                    <div className='title'><span className='text-Simple'>Simple</span><span className='text-DotArt'>DotArt</span></div>
+                    <div className='headerTitle'><span className='text-Simple'>Simple</span><span className='text-DotArt'>DotArt</span></div>
                 </Link>
                 <div className='middle-section'>
                     <Link to="/">

@@ -39,48 +39,38 @@ export function SearchPage({ setLoadData }) {
     return (
         <>
             <Header />
+            <input
+                className="inputSearch"
+                type="text"
+                placeholder="タイトル・作者・キーワードで検索"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
             <div className="searchPage">
-                <input
-                    className="inputSearch"
-                    type="text"
-                    placeholder="タイトル・作者・タグで検索"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-
                 <div className="postList">
                     {filteredPosts.length > 0 ? (
                         filteredPosts.map((post) => (
                             //  post.id がない場合に備えて代替キーを設定
                             <div key={post.id || `${post.name}-${post.postedAt}`} className="postItem">
-                                <p className="title">{post.name || "（タイトルなし）"}</p>
-                                <p className="author">by {post.author || "不明"}</p>
+                                <p className="author">作者: {post.author || "不明"}</p>
+                                <p className="searchTitle">{post.name || "（タイトルなし）"}</p>
+                                {post.image && (
+                                    <img
+                                        src={post.image}
+                                        alt="投稿された絵"
+                                        className="postImage"
+                                    />
+                                )}
                                 <p className="tags">
                                     #{post.tags?.split(",").join(" #") || "タグなし"}
                                 </p>
 
-                                <div
-                                    className="miniGrid"
-                                    style={{
-                                        display: "grid",
-                                        gridTemplateColumns: `repeat(${post.cols}, 8px)`,
-                                    }}
+                                <button
+                                    onClick={() => handleLoad(post)}
+                                    className="SearchLoadBtn"
                                 >
-                                    {post.pixels?.map((color, i) => (
-                                        // key に i を指定して警告回避
-                                        <div
-                                            key={i}
-                                            style={{
-                                                width: 8,
-                                                height: 8,
-                                                backgroundColor: color || "transparent",
-                                                border: "1px solid #ddd",
-                                            }}
-                                        />
-                                    ))}
-                                </div>
-
-                                <button onClick={() => handleLoad(post)}>読み込む</button>
+                                    読み込む
+                                </button>
                             </div>
                         ))
                     ) : (

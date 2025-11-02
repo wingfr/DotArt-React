@@ -3,7 +3,18 @@
     justify-items: center;
 }
 .setting {
-    display: flex;
+    display: grid;
     justify-content: center;
 }
 
+@media (min-width: 380px) {
+  .setting {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .setting {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

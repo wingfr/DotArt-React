@@ -1,0 +1,30 @@
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #ACACAC;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyword {
+    width: 154px;
+    height: 30px;
+    margin: 5px;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 600;
+}
+
+.PostBtn {
+  width: 70px;
+  height: 30px;
+  border: 0px;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.PostBtn:hover {
+  opacity: 0.8;
+}
+.PostBtn:active {
+  opacity: 0.6;
+}

@@ -1,17 +1,19 @@
 import './Post.css';
 import { useState } from 'react';
 
-export function Post({ gridSize, author, name, getPixels }) {
+export function Post({ gridSize, author, name, getPixels, getImage }) {
     const [tags, setTags] = useState("");
 
     // 投稿処理
-    const handlePost = () => {
+    const handlePost = async () => {
         if (!gridSize || !name.trim() || !author.trim()) {
             alert("作品名・作者名・グリッドを設定してください！");
             return;
         }
 
         const pixels = getPixels();
+        const imageData = await getImage();
+
         const postData = {
             id: Date.now(), // 🔑 一意なID
             name,
@@ -20,6 +22,7 @@ export function Post({ gridSize, author, name, getPixels }) {
             rows: gridSize.rows,
             cols: gridSize.cols,
             pixels,
+            image: imageData,
             postedAt: Date.now(),
         };
 
@@ -35,12 +38,18 @@ export function Post({ gridSize, author, name, getPixels }) {
     return (
         <div className="postContainer">
             <input
+                className='keyword'
                 type="text"
                 placeholder="キーワード（例：青, 猫, 夜）"
                 value={tags}
                 onChange={(e) => setTags(e.target.value)}
             />
-            <button onClick={handlePost}>投稿する</button>
+            <button
+                onClick={handlePost}
+                className='PostBtn'
+            >
+                投稿する
+            </button>
         </div>
     );
 }

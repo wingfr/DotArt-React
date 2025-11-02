@@ -1,9 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import html2canvas from 'html2canvas';
 import './Grid.css';
 
 export function Grid({ rows, cols, currentColor, clearSignal, initialPixels, onPixelsChange }) {
     const [isDrawing, setIsDrawing] = useState(false);
     const [pixels, setPixels] = useState([]);
+    const gridRef = useRef(null);
+
+    const exportAsImage = useCallback(async () => {
+        if (!gridRef.current) return null;
+        const canvas = await html2canvas(gridRef.current, {
+            backgroundColor: null,
+            scale: 2,
+        });
+        return canvas.toDataURL("image/png");
+    }, []);
 
     useEffect(() => {
         if (initialPixels) {
@@ -31,8 +42,15 @@ export function Grid({ rows, cols, currentColor, clearSignal, initialPixels, onP
         if (onPixelsChange) onPixelsChange(newPixels);
     }
 
+    useEffect(() => {
+        if (onPixelsChange) {
+            onPixelsChange(pixels, exportAsImage);
+        }
+    }, [onPixelsChange, pixels, exportAsImage]);
+
     return (
         <div
+            ref={gridRef}
             className="grid"
             style={{
                 display: 'grid',

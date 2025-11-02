@@ -17,8 +17,9 @@ export function DrawPage({ loadData, setLoadData }) {
     const [name, setName] = useState('');
     const [pixels, setPixels] = useState([]);
     const [author, setAuthor] = useState("");
-    const getPixels = () => pixels;
 
+    const getPixels = () => pixels;
+    const [getImage, setGetImage] = useState(null);
 
 
     const handleSave = () => {
@@ -88,7 +89,7 @@ export function DrawPage({ loadData, setLoadData }) {
         if (!loadData) return;
 
         setGridSize({ rows: loadData.rows, cols: loadData.cols });
-        setLoadedPixels(loadData.pixels); // ✅ pixels 値を渡す
+        setLoadedPixels(loadData.pixels);
         setAuthor(loadData.author || "");
         setName(loadData.name || "");
         setLoadData(null);
@@ -102,8 +103,15 @@ export function DrawPage({ loadData, setLoadData }) {
             <div className='drawPage'>
 
                 <div className="setting">
-                    <Post gridSize={gridSize} name={name} author={author} getPixels={getPixels} />
+                    <Post
+                        gridSize={gridSize}
+                        name={name}
+                        author={author}
+                        getPixels={getPixels}
+                        getImage={getImage}
+                    />
                     <SetName
+                        className="setName"
                         name={name}
                         setName={setName}
                         author={author}
@@ -128,7 +136,10 @@ export function DrawPage({ loadData, setLoadData }) {
                             currentColor={currentColor}
                             clearSignal={clearSignal}
                             initialPixels={loadedPixels}
-                            onPixelsChange={setPixels}
+                            onPixelsChange={(pixels, exportAsImage) => {
+                                setPixels(pixels);
+                                setGetImage(() => exportAsImage); //関数として保存
+                            }}
                         />
                     )}
                 </div>
