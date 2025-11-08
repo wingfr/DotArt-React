@@ -36,12 +36,13 @@
 
 .HomeBtn:hover {
     background-color: #dddddd;
-    border: 2px solid rgb(161, 161, 161);
+    border: 2px dashed rgb(19, 110, 54);
     scale: 1.01;
     color: rgba(0, 88, 4, 0.349);
 }
 .HomeBtn:active {
     background-color: #bdbdbd;
+    border: 2px dotted rgb(19, 110, 54);
     color: rgb(121, 84, 84);
     scale: 0.995;
 }

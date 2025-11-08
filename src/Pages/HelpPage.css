@@ -1,0 +1,44 @@
+.help-body {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    background-color: #2c79727c;
+    height: 100vh;
+    padding-top: 50px;
+}
+.help-title {
+
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #326a97;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0px 0px 5px #020202;
+    padding-right: 2px;
+    padding-left: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.help-h1 {
+    display: flex;
+  align-items: center;
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-shadow: 0px 0px 3px #1eff00;
+}
+.help-h1-simpledotart {
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+  align-items: center;
+}
+.help-h1-text-simple {
+    font-size: 40px;
+}
+.help-h1-notukaikata {
+    font-size: 30px;
+    color: #ffffff;
+}

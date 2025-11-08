@@ -4,6 +4,7 @@ import { DrawPage } from './Pages/DrawPage';
 import { HomePage } from './Pages/HomePage';
 import { GalleryPage } from './Pages/GalleryPage';
 import { SearchPage } from './Pages/SearchPage';
+import { HelpPage } from './Pages/HelpPage';
 import './App.css'
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
           path="/search"
           element={<SearchPage setLoadData={setLoadData} />}
         />
+        <Route path="/help" element={<HelpPage />} />
       </Routes>
     </>
   );

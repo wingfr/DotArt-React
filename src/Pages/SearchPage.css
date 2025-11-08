@@ -25,6 +25,8 @@
   gap: 20px;
   padding: 20px;
 }
+
+
 @keyframes fadeInScale {
     to {
       opacity: 1;          /* 最終的に表示 */
@@ -39,6 +41,8 @@
 @media (min-width: 780px) {
   .postList {
     grid-template-columns: repeat(3, 1fr);
+  }.postItem {
+    width: 200px;
   }
 }
 @media (min-width: 1045px) {
@@ -65,14 +69,15 @@
   font-family: "DotGothic16", sans-serif;
   background-color: #f9f9f9;
   width: 200px;
-  min-height: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+
 .postImage {
-  width: 120px;
+  max-width: 90px;
   border: 1px solid #ccc;
   border-radius: 8px;
   display: block;
@@ -89,6 +94,8 @@
 .tags {
   margin: 0px;
   font-size: 12px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .SearchLoadBtn {
   width: 100px;
@@ -105,4 +112,28 @@
 }
 .SearchLoadBtn:active {
   opacity: 0.6;
+}
+@media (max-width: 430px) {
+  .postList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }.postItem {
+    width: 100px;
+    height: 100px;
+    padding: 5px;;
+  }.postImage {
+    width: 20px;
+  }.searchTitle {
+    font-size: 10px;
+  }.author {
+    font-size: 10px;
+  }.tags {
+    font-size: 8px;
+  }.SearchLoadBtn {
+    width: 60px;
+    height: 15px;
+    font-size: 8px;
+  }.inputSearch {
+    width: 90%;
+  }
 }

@@ -6,6 +6,70 @@
     display: grid;
     justify-content: center;
 }
+@media (max-width: 505px) {
+  .setting {
+    grid-template-columns: repeat(2, 1fr);
+    width: 300px;
+  }.setName{
+    width: 140px;
+    height: 20px;
+    font-size: 13px;
+    margin: 2px;
+  }.setAuthor{
+    width: 140px;
+    height: 20px;
+    font-size: 13px;
+    margin: 2px;
+  }.colorContainer{
+    padding: 0px;
+    height: 100px;
+  }.keyword{
+    width: 140px;
+    height: 20px;
+    font-size: 13px;
+    margin: 2px;
+  }.PostBtn{
+    width: 60px;
+    height: 20px;
+    font-size: 11px;
+    margin-top: 0px;
+  }.rows {
+    height: 15px;
+    font-size: 13px;
+    margin-top: 0px;
+  }.cols {
+    font-size: 13px;
+    height: 15px;
+  }.createBtn {
+    width: 60px;
+    height: 20px;
+    font-size: 11px;
+    margin-top: 0px;
+}.pngBtn {
+    width: 60px;
+    height: 20px;
+    font-size: 9px;
+  }.gallery {
+    width: 60px;
+    height: 20px;
+    font-size: 9px;
+  }.createSetting {
+    height: 100px;
+    padding: 0px;
+  }.clearBtns {
+    margin-top: 0px;
+  }.eraser {
+    width: 60px;
+    height: 20px;
+    font-size: 9px;
+  }.saveBtns {
+    display: flex;
+  }.clearAll {
+  width: 60px;
+    height: 20px;
+    font-size: 9px;
+  }
+}
 
 @media (min-width: 380px) {
   .setting {

@@ -36,8 +36,24 @@ export function Header() {
 
                     <nav className={`nav ${open ? "show" : ""}`}>
                         <ul>
+                            <div className="hambergur-hide-for-phone">
+                                <Link to="/">
+                                    <li>Home</li>
+                                </Link>
+                                <Link to="/draw">
+                                    <li>Canvas</li>
+                                </Link>
+                                <Link to="/gallery">
+                                    <li>Gallery</li>
+                                </Link>
+                                <Link to="/search">
+                                    <li>Search</li>
+                                </Link>
+                            </div>
                             <li>Contact</li>
-                            <li>Help</li>
+                            <Link to="/help">
+                                <li className='hambergur-help'>Help</li>
+                            </Link>
                         </ul>
                     </nav>
                 </div>

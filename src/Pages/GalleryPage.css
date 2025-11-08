@@ -14,8 +14,7 @@ p {
   text-decoration: underline;
   color: black;
   transition: 0.2s ease;
-  min-width: 198px;
-  min-height: 198px;
+  
   font-family: "DotGothic16", sans-serif;
 }
 .toDrawingPage:hover {
@@ -42,8 +41,8 @@ p {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  min-width: 230px;
-  min-height: 230px;
+  width: 230px;
+  height: 230px;
   opacity: 0;
   transform: scale(0.5);
   animation: fadeInScale 0.5s forwards;
@@ -53,7 +52,6 @@ p {
 .galleryItemsContent {
   background-color: transparent;
   border-radius: 15px;
-  min-height: 198px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,8 +59,8 @@ p {
   opacity: 0;
   transform: scale(0.5);
   animation: fadeInScale 0.5s forwards;
-    padding: 10px;
 }
+
 
 @keyframes fadeInScale {
     to {
@@ -157,9 +155,28 @@ p {
   color: #6b6b6b;
 }
 .galleryItemsImage {
-  width: 120px;
+  max-width: 120px;
   border: 1px solid #ccc;
   border-radius: 8px;
   display: block;
   margin: 0 auto 0px auto;
+}
+
+@media (max-width: 505px) {
+  .galleryItemsContent {
+    padding: 10px;
+  }.galleryList {
+    grid-template-columns: repeat(2, 1fr);
+  }.galleryItemsImage {
+    width: 40px;
+  }.galleryItem {
+    width: 150px;
+    height: 150px;
+  }.projectAuthor {
+    font-size: 10px;
+  }.projectName {
+    font-size: 10px;
+  }.date {
+    font-size: 10px; 
+  }
 }
