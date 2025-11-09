@@ -9,9 +9,16 @@
 }
 
 .grid {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   margin-top: 10px;
   border: 1px solid #333;
+  box-sizing: border-box;
+  touch-action: none;
+  gap: 0;
 }
+
 * {
   user-select: none;
 }

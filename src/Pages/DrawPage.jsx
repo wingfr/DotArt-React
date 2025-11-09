@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react'
-import html2canvas from 'html2canvas';
 import { Settings } from '../components/Settings';
 import { Grid } from '../components/Grid';
 import { ColorSettings } from '../components/ColorSettings';
@@ -22,39 +21,38 @@ export function DrawPage({ loadData, setLoadData }) {
     const [getImage, setGetImage] = useState(null);
 
 
-    const handleSave = () => {
+    const handleSave = async () => {
         if (!displayRef.current) return;
 
         const grid = displayRef.current.querySelector('.grid');
         const pixels = displayRef.current.querySelectorAll('.pixel');
+        if (!grid || pixels.length === 0) return;
 
+        const rows = gridSize.rows;
+        const cols = gridSize.cols;
 
-        if (!grid) return;
+        // ① 新しいCanvasを作る（16x16など固定サイズ）
+        const canvas = document.createElement("canvas");
+        canvas.width = cols;
+        canvas.height = rows;
+        const ctx = canvas.getContext("2d");
 
-        const prevGridBorder = grid.style.border;
-        const prevPixelBorders = [];
-
+        // ② ピクセルごとに色を塗る
         pixels.forEach((pixel, i) => {
-            prevPixelBorders[i] = pixel.style.border;
-            pixel.style.border = 'none';
+            const color = pixel.style.backgroundColor || "transparent";
+            const x = i % cols;
+            const y = Math.floor(i / cols);
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, 1, 1);
         });
 
-        grid.style.border = 'none';
-
-        html2canvas(displayRef.current, { backgroundColor: null, scale: 16 / 240 })
-            .then(canvas => {
-                const link = document.createElement('a');
-                link.download = `${name}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            })
-            .finally(() => {
-                grid.style.border = prevGridBorder;
-                pixels.forEach((pixel, i) => {
-                    pixel.style.border = prevPixelBorders[i];
-                });
-            });
+        // ③ PNGとして保存
+        const link = document.createElement("a");
+        link.download = `${name || "image"}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
     };
+
 
     const handleClearAll = () => setClearSignal(prev => prev + 1);
 
