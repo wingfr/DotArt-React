@@ -142,9 +142,7 @@ li {
   opacity: 0.8;
 
 }
-.hambergur-hide-for-phone {
-  
-}
+
 @media (min-width: 600px) {
   .hambergur-hide-for-phone {
     display: none;

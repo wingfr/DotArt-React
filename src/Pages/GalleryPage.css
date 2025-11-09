@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
 p {
   font-family: "DotGothic16", sans-serif;
   font-weight: 600;
@@ -14,7 +18,9 @@ p {
   text-decoration: underline;
   color: black;
   transition: 0.2s ease;
-  
+  max-width: 240px;
+  max-height: 240px;
+  padding: 5px;
   font-family: "DotGothic16", sans-serif;
 }
 .toDrawingPage:hover {

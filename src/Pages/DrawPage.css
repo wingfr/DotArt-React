@@ -5,6 +5,7 @@
 .setting {
     display: grid;
     justify-content: center;
+    margin-bottom: 10px;
 }
 @media (max-width: 505px) {
   .setting {
@@ -45,7 +46,7 @@
     height: 20px;
     font-size: 11px;
     margin-top: 0px;
-}.pngBtn {
+  }.pngBtn {
     width: 60px;
     height: 20px;
     font-size: 9px;
@@ -65,7 +66,7 @@
   }.saveBtns {
     display: flex;
   }.clearAll {
-  width: 60px;
+    width: 60px;
     height: 20px;
     font-size: 9px;
   }

@@ -1,8 +1,7 @@
 .searchPage {
   font-family: "DotGothic16", sans-serif;
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  
+ 
 }
 
 .inputSearch {
@@ -21,9 +20,16 @@
   max-width: 500px;
 }
 .postList {
+  overflow-y: auto;
+  overflow-x: hidden;
   display: grid;
   gap: 20px;
   padding: 20px;
+  height: 700px;
+}
+.postList::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
 
@@ -96,6 +102,19 @@
   font-size: 12px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+.tags::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  
+}
+.tags::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 15px;
+}
+.tags::-webkit-scrollbar-track {
+  background: #8f8f8f;
+  border-radius: 15px;
 }
 .SearchLoadBtn {
   width: 100px;
