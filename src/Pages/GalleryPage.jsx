@@ -52,8 +52,9 @@ export function GalleryPage({ setLoadData }) {
                                     />
                                 )}
                                 <p className="gridSize">{item.rows} × {item.cols}</p>
-                                <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
+
                             </div>
+                            <p className="date">{new Date(item.savedAt).toLocaleString()}</p>
                             {/* 読み込みボタン */}
                             <button className="loadBtn" onClick={() => handleLoad(item)}>
                                 読み込む

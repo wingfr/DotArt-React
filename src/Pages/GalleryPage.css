@@ -48,6 +48,8 @@ p {
   animation: fadeInScale 0.5s forwards;
   justify-content: space-between;
   box-shadow: 0px 0px 5px #333;
+  padding: 3px;
+  position: relative;
 }
 .galleryItemsContent {
   background-color: transparent;
@@ -128,7 +130,7 @@ p {
   position: absolute;
   right: 0px;
   top: 0px;
-    z-index: 10;
+  z-index: 10;
 }
 .deleteBtn:hover {
   background-color: rgb(95, 0, 0);
@@ -145,6 +147,9 @@ p {
 }
 
 .date {
+  position: fixed;
+  bottom: 25px;
+  right: 5px;
   margin: 0px;
   font-size: 13px;
   color: #a1a1a1;
@@ -164,7 +169,7 @@ p {
 
 @media (max-width: 505px) {
   .galleryItemsContent {
-    padding: 10px;
+    padding: 5px;
   }.galleryList {
     grid-template-columns: repeat(2, 1fr);
   }.galleryItemsImage {
